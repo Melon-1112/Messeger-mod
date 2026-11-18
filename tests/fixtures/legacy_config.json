@@ -1,0 +1,14 @@
+{
+  "theme": "dark",
+  "darkMode": true,
+  "followSystemAppearance": false,
+  "privateMode": true,
+  "zoomFactor": 1.2,
+  "sidebar": "narrow",
+  "alwaysOnTop": true,
+  "showTrayIcon": true,
+  "quitOnWindowClose": false,
+  "useWorkChat": false,
+  "notificationMessagePreview": false
+}
+

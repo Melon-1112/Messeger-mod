@@ -1,0 +1,1076 @@
+/* ==========================================================================
+   dev by n0trxxan.1112 — Minimalist Glassmorphic Native Desktop UI (Light & Dark)
+   Unified Platform + Messenger Comet Theme Synchronization
+   ========================================================================== */
+
+:root,
+html[data-n0-theme="light"],
+html[data-n0-theme="light"].__fb-light-mode,
+html[data-n0-theme="light"] .__fb-light-mode {
+    --n0-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
+    --n0-bg: #f4f6fa;
+    --n0-login-bg: radial-gradient(circle at 18% 18%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                   radial-gradient(circle at 82% 25%, rgba(236, 72, 153, 0.06) 0%, transparent 40%),
+                   radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.07) 0%, transparent 45%),
+                   #f4f6fa;
+    --n0-glass-card-bg: rgba(255, 255, 255, 0.65);
+    --n0-glass-card-border: rgba(255, 255, 255, 0.85);
+    --n0-glass-card-shadow: 0 24px 50px -12px rgba(30, 41, 59, 0.08), 0 4px 16px rgba(0, 0, 0, 0.02), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    --n0-glass-blur: blur(28px) saturate(190%);
+    --n0-text-primary: #0f172a;
+    --n0-text-secondary: #475569;
+    --n0-text-muted: #94a3b8;
+    --n0-input-bg: rgba(255, 255, 255, 0.82);
+    --n0-input-focus-bg: #ffffff;
+    --n0-input-border: rgba(0, 0, 0, 0.08);
+    --n0-input-focus-border: #0070f3;
+    --n0-input-focus-ring: rgba(0, 112, 243, 0.15);
+    --n0-input-text: #0f172a;
+    --n0-input-placeholder: #94a3b8;
+    --n0-btn-bg: linear-gradient(135deg, #0070f3 0%, #0056d6 100%);
+    --n0-btn-hover-bg: linear-gradient(135deg, #007cf8 0%, #005fe6 100%);
+    --n0-btn-shadow: 0 8px 24px -4px rgba(0, 112, 243, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    --n0-toggle-bg: rgba(255, 255, 255, 0.75);
+    --n0-toggle-hover-bg: rgba(255, 255, 255, 0.95);
+    --n0-toggle-border: rgba(0, 0, 0, 0.08);
+    --n0-toggle-icon: #0f172a;
+    --n0-footer-border: rgba(0, 0, 0, 0.06);
+
+    /* Đồng bộ biến CSS gốc của Messenger Comet (Light Mode) */
+    --web-wash: #f0f2f5 !important;
+    --header-and-navigation-background: #f0f2f5 !important;
+    --surface-background: #ffffff !important;
+    --card-background: #ffffff !important;
+    --card-background-flat: #f7f8fa !important;
+    --messenger-card-background: #ffffff !important;
+    --messenger-reply-background: #f0f2f5 !important;
+    --comment-background: #f0f2f5 !important;
+    --wash: #e4e6eb !important;
+    --primary-text: #050505 !important;
+    --secondary-text: #65676b !important;
+    --placeholder-text: #65676b !important;
+    --primary-icon: #050505 !important;
+    --secondary-icon: #65676b !important;
+    --disabled-icon: #bcc0c4 !important;
+    --divider: #ced0d4 !important;
+    --hover-overlay: rgba(0, 0, 0, 0.04) !important;
+    --press-overlay: rgba(0, 0, 0, 0.08) !important;
+    color-scheme: light !important;
+}
+
+html[data-n0-theme="dark"],
+html[data-n0-theme="dark"].__fb-dark-mode,
+html[data-n0-theme="dark"] .__fb-dark-mode {
+    --n0-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
+    --n0-bg: #0b0c10;
+    --n0-login-bg: radial-gradient(circle at 18% 18%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                   radial-gradient(circle at 82% 25%, rgba(147, 51, 234, 0.07) 0%, transparent 40%),
+                   radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
+                   #0b0c10;
+    --n0-glass-card-bg: rgba(18, 20, 26, 0.58);
+    --n0-glass-card-border: rgba(255, 255, 255, 0.12);
+    --n0-glass-card-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.55), 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.14);
+    --n0-glass-blur: blur(28px) saturate(190%);
+    --n0-text-primary: #f8fafc;
+    --n0-text-secondary: #94a3b8;
+    --n0-text-muted: #64748b;
+    --n0-input-bg: rgba(255, 255, 255, 0.045);
+    --n0-input-focus-bg: rgba(255, 255, 255, 0.08);
+    --n0-input-border: rgba(255, 255, 255, 0.09);
+    --n0-input-focus-border: #3b82f6;
+    --n0-input-focus-ring: rgba(59, 130, 246, 0.22);
+    --n0-input-text: #f8fafc;
+    --n0-input-placeholder: rgba(255, 255, 255, 0.35);
+    --n0-btn-bg: linear-gradient(135deg, #0070f3 0%, #0056d6 100%);
+    --n0-btn-hover-bg: linear-gradient(135deg, #1a82ff 0%, #0060eb 100%);
+    --n0-btn-shadow: 0 8px 24px -4px rgba(0, 112, 243, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    --n0-toggle-bg: rgba(255, 255, 255, 0.08);
+    --n0-toggle-hover-bg: rgba(255, 255, 255, 0.14);
+    --n0-toggle-border: rgba(255, 255, 255, 0.14);
+    --n0-toggle-icon: #f8fafc;
+    --n0-footer-border: rgba(255, 255, 255, 0.08);
+
+    /* Đồng bộ biến CSS gốc của Messenger Comet (Dark Mode) */
+    --web-wash: #0c0d10 !important;
+    --header-and-navigation-background: #0c0d10 !important;
+    --surface-background: #18191a !important;
+    --card-background: #18191a !important;
+    --card-background-flat: #242526 !important;
+    --messenger-card-background: #18191a !important;
+    --messenger-reply-background: #242526 !important;
+    --comment-background: #242526 !important;
+    --wash: #3a3b3c !important;
+    --primary-text: #e4e6eb !important;
+    --secondary-text: #b0b3b8 !important;
+    --placeholder-text: #8a8d91 !important;
+    --primary-icon: #e4e6eb !important;
+    --secondary-icon: #b0b3b8 !important;
+    --disabled-icon: #585b60 !important;
+    --divider: rgba(255, 255, 255, 0.08) !important;
+    --hover-overlay: rgba(255, 255, 255, 0.06) !important;
+    --press-overlay: rgba(255, 255, 255, 0.10) !important;
+    color-scheme: dark !important;
+}
+
+/* Đảm bảo nền tổng thể ngoài khung bo góc của Messenger luôn đồng nhất với Theme */
+html[data-n0-theme] body {
+    background-color: var(--n0-bg) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. UNIFIED MENU & FEATURE CONTROL BAR (Góc trên bên phải)
+   -------------------------------------------------------------------------- */
+#n0trxxan-menu-root {
+    position: fixed !important;
+    top: 14px !important;
+    right: 16px !important;
+    z-index: 2147483647 !important;
+    font-family: var(--n0-font) !important;
+}
+
+#n0trxxan-menu-btn {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    background: rgba(24, 26, 32, 0.86) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, transform 0.12s ease !important;
+}
+
+html[data-n0-theme="light"] #n0trxxan-menu-btn,
+html.n0-light #n0trxxan-menu-btn {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-color: rgba(15, 23, 42, 0.14) !important;
+    color: #0f172a !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12) !important;
+}
+
+#n0trxxan-menu-btn:hover {
+    transform: translateY(-1px) !important;
+}
+
+#n0trxxan-menu-btn:active {
+    transform: scale(0.96) !important;
+}
+
+#n0trxxan-menu-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    pointer-events: none !important;
+}
+
+#n0trxxan-control-panel {
+    position: absolute !important;
+    top: 44px !important;
+    right: 0 !important;
+    width: 320px !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: calc(100vh - 72px) !important;
+    overflow-y: auto !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    background: #16181f !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: #f1f5f9 !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5) !important;
+    box-sizing: border-box !important;
+}
+
+html[data-n0-theme="light"] #n0trxxan-control-panel,
+html.n0-light #n0trxxan-control-panel {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.14) !important;
+    color: #0f172a !important;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.16) !important;
+}
+
+#n0trxxan-control-panel.n0-open {
+    display: flex !important;
+}
+
+.n0-ctrl-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html[data-n0-theme="light"] .n0-ctrl-header,
+html.n0-light .n0-ctrl-header {
+    border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+.n0-ctrl-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.n0-ctrl-close {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: inherit;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-close,
+html.n0-light .n0-ctrl-close {
+    border-color: rgba(15, 23, 42, 0.12);
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.n0-ctrl-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-n0-theme="light"] .n0-ctrl-bar,
+html.n0-light .n0-ctrl-bar {
+    background: #f8fafc;
+    border-color: rgba(15, 23, 42, 0.09);
+}
+
+.n0-ctrl-seg,
+.n0-ctrl-zoom {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(0, 0, 0, 0.22);
+    padding: 3px;
+    border-radius: 8px;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-seg,
+html.n0-light .n0-ctrl-seg,
+html[data-n0-theme="light"] .n0-ctrl-zoom,
+html.n0-light .n0-ctrl-zoom {
+    background: #e2e8f0;
+}
+
+.n0-seg-btn,
+.n0-zoom-btn,
+.n0-zoom-reset {
+    height: 26px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.n0-zoom-btn {
+    padding: 0 8px;
+}
+
+.n0-seg-btn.n0-active {
+    background: #0070f3;
+    color: #ffffff;
+}
+
+.n0-zoom-btn:hover,
+.n0-zoom-reset:hover,
+.n0-seg-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.n0-seg-btn.n0-active:hover {
+    background: #0062d6;
+}
+
+html[data-n0-theme="light"] .n0-zoom-btn:hover,
+html.n0-light .n0-zoom-btn:hover,
+html[data-n0-theme="light"] .n0-zoom-reset:hover,
+html.n0-light .n0-zoom-reset:hover,
+html[data-n0-theme="light"] .n0-seg-btn:hover,
+html.n0-light .n0-seg-btn:hover {
+    background: rgba(15, 23, 42, 0.08);
+}
+
+html[data-n0-theme="light"] .n0-seg-btn.n0-active:hover,
+html.n0-light .n0-seg-btn.n0-active:hover {
+    background: #0062d6;
+}
+
+.n0-ctrl-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.n0-ctrl-switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.n0-ctrl-switch:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-n0-theme="light"] .n0-ctrl-switch,
+html.n0-light .n0-ctrl-switch {
+    border-color: rgba(15, 23, 42, 0.08);
+    background: #f8fafc;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-switch:hover,
+html.n0-light .n0-ctrl-switch:hover {
+    background: #f1f5f9;
+}
+
+.n0-ctrl-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.n0-ctrl-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.n0-ctrl-desc {
+    font-size: 11px;
+    line-height: 1.3;
+    color: #94a3b8;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-desc,
+html.n0-light .n0-ctrl-desc {
+    color: #475569;
+}
+
+.n0-switch-track {
+    position: relative;
+    flex-shrink: 0;
+    width: 36px;
+    height: 20px;
+    border-radius: 999px;
+    background: #3f4451;
+    transition: background-color 0.15s ease;
+}
+
+html[data-n0-theme="light"] .n0-switch-track,
+html.n0-light .n0-switch-track {
+    background: #cbd5e1;
+}
+
+.n0-ctrl-switch[aria-checked="true"] .n0-switch-track {
+    background: #0070f3;
+}
+
+.n0-switch-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease;
+}
+
+.n0-ctrl-switch[aria-checked="true"] .n0-switch-thumb {
+    transform: translateX(16px);
+}
+
+.n0-ctrl-stats {
+    margin-top: 8px;
+    padding: 8px 10px 2px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 11px;
+    line-height: 1.35;
+    font-variant-numeric: tabular-nums;
+    color: #94a3b8;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-stats,
+html.n0-light .n0-ctrl-stats {
+    border-top-color: rgba(15, 23, 42, 0.08);
+    color: #475569;
+}
+
+#n0trxxan-menu-btn:focus-visible,
+.n0-ctrl-close:focus-visible,
+.n0-seg-btn:focus-visible,
+.n0-zoom-btn:focus-visible,
+.n0-zoom-reset:focus-visible,
+.n0-ctrl-switch:focus-visible,
+.n0-recall-inline-btn:focus-visible,
+.n0-recalled-link:focus-visible {
+    outline: 2px solid #3b82f6 !important;
+    outline-offset: 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #n0trxxan-menu-btn,
+    .n0-seg-btn,
+    .n0-zoom-btn,
+    .n0-zoom-reset,
+    .n0-ctrl-switch,
+    .n0-switch-track,
+    .n0-switch-thumb {
+        transition: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. TRANG LOGIN (data-n0-page="login") - GLASSMORPHISM MINIMALIST
+   -------------------------------------------------------------------------- */
+html[data-n0-page="login"] body,
+html[data-n0-page="login"] body ._li,
+html[data-n0-page="login"] body ._4-u5,
+html[data-n0-page="login"] body ._940p {
+    background: var(--n0-login-bg) !important;
+    color: var(--n0-text-primary) !important;
+    font-family: var(--n0-font) !important;
+}
+
+/* Ẩn các nhãn / link chân trang (Chưa dùng Facebook, Quên mật khẩu, Chính sách, Điều khoản...) */
+html[data-n0-page="login"] footer,
+html[data-n0-page="login"] [role="contentinfo"],
+html[data-n0-page="login"] ._940r,
+html[data-n0-page="login"] ._li footer {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Ẩn logo Messenger gốc trên trang login (Chỉ ẩn ._940n và svg logo, KHÔNG ẩn ._940o) */
+html[data-n0-page="login"] ._940n,
+html[data-n0-page="login"] ._940p > svg,
+html[data-n0-page="login"] [data-n0-orig-logo="true"] {
+    display: none !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Tiêu đề Welcome to Messenger & Logo mèo Glassmorphism */
+html[data-n0-page="login"] [data-n0-welcome="true"],
+html[data-n0-page="login"] [data-n0-welcome="true"] * {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+}
+
+html[data-n0-page="login"] [data-n0-welcome="true"]::before {
+    content: "" !important;
+    display: block !important;
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 auto 16px auto !important;
+    background-image: var(--n0-custom-logo) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 22px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+html[data-n0-page="login"] [data-n0-welcome="true"]::after {
+    content: "Welcome to Messenger";
+    display: block !important;
+    font-family: var(--n0-font) !important;
+    font-size: 26px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.025em !important;
+    color: var(--n0-text-primary) !important;
+    text-align: center !important;
+}
+
+/* Glassmorphism Form Card */
+html[data-n0-page="login"] form,
+html[data-n0-page="login"] form * {
+    box-sizing: border-box !important;
+}
+
+html[data-n0-page="login"] form {
+    width: 370px !important;
+    max-width: 90vw !important;
+    margin: 24px auto 0 auto !important;
+    padding: 30px 28px 24px 28px !important;
+    background: var(--n0-glass-card-bg) !important;
+    backdrop-filter: var(--n0-glass-blur) !important;
+    -webkit-backdrop-filter: var(--n0-glass-blur) !important;
+    border: 1px solid var(--n0-glass-card-border) !important;
+    border-radius: 22px !important;
+    box-shadow: var(--n0-glass-card-shadow) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+html[data-n0-page="login"] form > div,
+html[data-n0-page="login"] form div,
+html[data-n0-page="login"] form ._940s,
+html[data-n0-page="login"] form ._xdd {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    float: none !important;
+}
+
+/* Input Fields (Glassmorphic) */
+html[data-n0-page="login"] form input[type="text"],
+html[data-n0-page="login"] form input[type="email"],
+html[data-n0-page="login"] form input[type="password"],
+html[data-n0-page="login"] form input[name="email"],
+html[data-n0-page="login"] form input[name="pass"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 46px !important;
+    padding: 0 16px !important;
+    margin: 6px 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    background: var(--n0-input-bg) !important;
+    border: 1px solid var(--n0-input-border) !important;
+    color: var(--n0-input-text) !important;
+    font-family: var(--n0-font) !important;
+    font-size: 14.5px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html[data-n0-page="login"] form input::placeholder {
+    color: var(--n0-input-placeholder) !important;
+}
+
+html[data-n0-page="login"] form input:focus {
+    background: var(--n0-input-focus-bg) !important;
+    border-color: var(--n0-input-focus-border) !important;
+    box-shadow: 0 0 0 3px var(--n0-input-focus-ring) !important;
+}
+
+/* Nút Submit Tiếp tục - Căn chỉnh hoàn hảo bên trong khung, không lòi ra ngoài */
+html[data-n0-page="login"] form button[type="submit"],
+html[data-n0-page="login"] form button[name="login"],
+html[data-n0-page="login"] form #loginbutton,
+html[data-n0-page="login"] form .uiButtonConfirm {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 44px !important;
+    margin: 14px 0 0 0 !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: var(--n0-btn-bg) !important;
+    color: #ffffff !important;
+    font-family: var(--n0-font) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    box-shadow: var(--n0-btn-shadow) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important;
+    float: none !important;
+}
+
+html[data-n0-page="login"] form #loginbutton input,
+html[data-n0-page="login"] form #loginbutton button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-family: var(--n0-font) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+html[data-n0-page="login"] form button[type="submit"]:hover,
+html[data-n0-page="login"] form button[name="login"]:hover,
+html[data-n0-page="login"] form #loginbutton:hover {
+    background: var(--n0-btn-hover-bg) !important;
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 10px 28px -4px rgba(0, 112, 243, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+html[data-n0-page="login"] form button[type="submit"]:active,
+html[data-n0-page="login"] form button[name="login"]:active,
+html[data-n0-page="login"] form #loginbutton:active {
+    transform: translateY(0.5px) !important;
+}
+
+/* Checkbox và nhãn Save login kế bên nhau */
+html[data-n0-page="login"] form .n0-checkbox-container,
+html[data-n0-page="login"] form .uiInputLabel,
+html[data-n0-page="login"] form div:has(> input[type="checkbox"]),
+html[data-n0-page="login"] form label:has(input[type="checkbox"]) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 16px auto 0 auto !important;
+    padding: 0 !important;
+    position: static !important;
+    float: none !important;
+    clear: both !important;
+}
+
+html[data-n0-page="login"] form input[type="checkbox"] {
+    position: static !important;
+    float: none !important;
+    display: inline-block !important;
+    accent-color: #0070f3 !important;
+    cursor: pointer !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+}
+
+html[data-n0-page="login"] form .uiInputLabel label,
+html[data-n0-page="login"] form .uiInputLabelLabel,
+html[data-n0-page="login"] form label[for="persist_box"],
+html[data-n0-page="login"] form [data-n0-save-login="true"] {
+    display: inline-block !important;
+    position: static !important;
+    float: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--n0-text-secondary) !important;
+    font-family: var(--n0-font) !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    line-height: 16px !important;
+    vertical-align: middle !important;
+}
+
+/* dev by n0trxxan.1112 footer bên trong card */
+html[data-n0-page="login"] form::after {
+    content: "dev by n0trxxan.1112";
+    display: block;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--n0-footer-border);
+    color: var(--n0-text-muted);
+    font-family: var(--n0-font);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. CHẾ ĐỘ RIÊNG TƯ & THANH CUỘN
+   -------------------------------------------------------------------------- */
+html.private-mode [role="main"] {
+    filter: blur(8px) grayscale(50%);
+    transition: filter 0.3s ease;
+}
+
+html.private-mode [role="main"]:hover {
+    filter: none;
+}
+
+html.sidebar-hidden [role="navigation"] {
+    display: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(128, 128, 128, 0.5);
+}
+
+
+/* ================= ANTI-RECALL (CHỐNG THU HỒI TIN NHẮN) ================= */
+/* Ẩn chữ tombstone "... đã xóa/thu hồi một tin nhắn" nhưng giữ nguyên node cho React */
+.n0-tombstone-hidden {
+    display: none !important;
+}
+
+/* Bong bóng tin nhắn khôi phục giống tin nhắn gốc + tag "Đã thu hồi" */
+.n0-recalled-bubble-wrap {
+    position: relative;
+    z-index: 30;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: min(440px, 75vw);
+    width: fit-content;
+    margin: 2px 0 4px 0;
+    pointer-events: auto !important;
+}
+
+.n0-recalled-bubble-wrap.n0-align-right {
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.n0-recalled-bubble-wrap.n0-align-left {
+    align-items: flex-start;
+}
+
+.n0-recalled-bubble {
+    padding: 8px 13px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.38;
+    box-sizing: border-box;
+    word-break: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.n0-recalled-bubble.n0-bubble-peer {
+    background: #303030;
+    color: #f3f4f6;
+    border: 1px solid rgba(245, 158, 11, 0.42);
+}
+
+html[data-n0-theme="light"] .n0-recalled-bubble.n0-bubble-peer,
+html.n0-light .n0-recalled-bubble.n0-bubble-peer {
+    background: #e4e6eb;
+    color: #050505;
+    border: 1px solid rgba(217, 119, 6, 0.38);
+}
+
+.n0-recalled-bubble.n0-bubble-self {
+    background: #0084ff;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.n0-recalled-tag-row {
+    position: relative;
+    z-index: 31;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 4px;
+    pointer-events: auto !important;
+}
+
+.n0-recalled-tag {
+    position: relative;
+    z-index: 32;
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    background: rgba(245, 158, 11, 0.16);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #fbbf24;
+    pointer-events: auto !important;
+    user-select: none;
+    cursor: pointer;
+}
+
+html[data-n0-theme="light"] .n0-recalled-tag,
+html.n0-light .n0-recalled-tag {
+    background: rgba(254, 243, 199, 0.95);
+    border-color: rgba(217, 119, 6, 0.45);
+    color: #b45309;
+}
+
+.n0-recalled-time {
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, 0.58);
+}
+
+html[data-n0-theme="light"] .n0-recalled-time,
+html.n0-light .n0-recalled-time {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.n0-recall-inline-btn {
+    position: relative;
+    z-index: 32;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+    pointer-events: auto !important;
+    user-select: none;
+    transition: background 0.12s ease, transform 0.1s ease;
+}
+
+.n0-recall-inline-btn:active {
+    transform: scale(0.96);
+}
+
+.n0-recall-inline-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+}
+
+.n0-recall-inline-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.n0-recall-inline-primary {
+    border-color: rgba(245, 158, 11, 0.55);
+    background: rgba(245, 158, 11, 0.16);
+    color: #fbbf24;
+}
+
+.n0-recall-inline-primary:hover {
+    background: rgba(245, 158, 11, 0.28);
+}
+
+html[data-n0-theme="light"] .n0-recall-inline-btn,
+html.n0-light .n0-recall-inline-btn {
+    border-color: rgba(0, 0, 0, 0.14);
+    background: rgba(0, 0, 0, 0.06);
+    color: #1f2937;
+}
+
+html[data-n0-theme="light"] .n0-recall-inline-primary,
+html.n0-light .n0-recall-inline-primary {
+    border-color: rgba(217, 119, 6, 0.45);
+    background: rgba(254, 243, 199, 0.92);
+    color: #b45309;
+}
+
+.n0-manual-restore-bar {
+    margin: 2px 0 2px 8px;
+    align-self: center;
+    flex-wrap: wrap;
+}
+
+.n0-recall-inline-hint {
+    font-size: 11px;
+    opacity: 0.78;
+}
+
+.n0-recalled-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+    user-select: text;
+}
+
+.n0-recalled-media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.n0-recalled-img {
+    max-width: 220px;
+    max-height: 220px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.n0-preapp-tag {
+    position: relative;
+    z-index: 31;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.56);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    pointer-events: auto !important;
+    user-select: none;
+    transition: background 0.12s ease, color 0.12s ease;
+}
+
+.n0-preapp-tag:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-n0-theme="light"] .n0-preapp-tag,
+html.n0-light .n0-preapp-tag {
+    color: rgba(31, 41, 55, 0.68);
+    background: rgba(0, 0, 0, 0.045);
+    border-color: rgba(0, 0, 0, 0.11);
+}
+
+html[data-n0-theme="light"] .n0-preapp-tag:hover,
+html.n0-light .n0-preapp-tag:hover {
+    background: rgba(0, 0, 0, 0.09);
+    color: #111827;
+}
+
+.n0-recalled-attachment {
+    font-size: 12px;
+    opacity: 0.85;
+    word-break: break-all;
+}
+
+.n0-recalled-video {
+    display: block;
+    max-width: 240px;
+    max-height: 200px;
+    border-radius: 10px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.n0-recalled-video-poster {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.n0-recalled-video-badge {
+    position: absolute;
+    left: 6px;
+    bottom: 6px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+    background: rgba(15, 23, 42, 0.82);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    pointer-events: none;
+}
+
+.n0-recalled-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 280px;
+    padding: 6px 10px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #93c5fd !important;
+    background: rgba(59, 130, 246, 0.14);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    text-decoration: underline !important;
+    word-break: break-all;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.n0-recalled-link-thumb {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.n0-recalled-link:hover {
+    background: rgba(59, 130, 246, 0.24);
+    border-color: rgba(96, 165, 250, 0.55);
+}
+
+html[data-n0-theme="light"] .n0-recalled-link,
+html.n0-light .n0-recalled-link {
+    color: #1d4ed8 !important;
+    background: rgba(37, 99, 235, 0.08);
+    border-color: rgba(37, 99, 235, 0.32);
+}
+
+html[data-n0-theme="light"] .n0-recalled-link:hover,
+html.n0-light .n0-recalled-link:hover {
+    background: rgba(37, 99, 235, 0.15);
+}

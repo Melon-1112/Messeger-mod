@@ -1,0 +1,51 @@
+[package]
+name = "caprine-rust"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+authors = ["Caprine Rust Migration Team"]
+description = "High-performance, privacy-focused desktop client for Facebook Messenger on Windows written in Rust"
+license = "MIT"
+
+[dependencies]
+# GUI windowing and Windows WebView2
+tao = { version = "0.28", features = ["rwh_05"] }
+wry = { version = "0.40", features = ["os-webview"] }
+webview2-com = "0.30.0"
+windows-core = "0.56.0"
+
+# Serialization and configuration
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+directories = "5.0"
+
+# URL parsing and validation
+url = "2.5"
+
+# System operations
+open = "5.1"
+log = "0.4"
+env_logger = "0.11"
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+# Windows Native APIs (Flash, Mutex, Win32 Messaging, System Tray, Startup Registry)
+windows-sys = { version = "0.52", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Shell",
+    "Win32_Graphics_Gdi",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Registry",
+    "Win32_System_Threading"
+] }
+
+[dev-dependencies]
+tempfile = "3.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
