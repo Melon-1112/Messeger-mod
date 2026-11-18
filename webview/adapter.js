@@ -4894,7 +4894,7 @@
         header.className = 'n0-ctrl-header';
         const title = document.createElement('span');
         title.className = 'n0-ctrl-title';
-        title.innerHTML = 'Điều chỉnh chức năng <span class="n0-ctrl-author">dev by n0trxxan.1112</span>';
+        title.innerHTML = '<span class="n0-ctrl-title-icon">✦</span> <span class="n0-ctrl-title-text">Holo Menu</span> <span class="n0-holo-badge">dev by n0trxxan.1112</span>';
         const closeBtn = document.createElement('button');
         closeBtn.id = 'n0trxxan-menu-close';
         closeBtn.type = 'button';
@@ -5040,7 +5040,7 @@
 
         const devFooter = document.createElement('div');
         devFooter.className = 'n0-ctrl-dev-footer';
-        devFooter.textContent = 'dev by n0trxxan.1112';
+        devFooter.innerHTML = '<div class="n0-holo-glitch">⚡ DEV BY N0TRXXAN.1112 ⚡</div>';
         panel.appendChild(devFooter);
 
         menuRoot.appendChild(menuBtn);
