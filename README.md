@@ -1,71 +1,66 @@
-# Caprine (Rust Desktop Host cho Windows)
+# Messenger Mod (Caprine Rust Desktop Client)
 
-Ứng dụng Caprine chạy bằng **Rust** thuần túy dành riêng cho **Windows**, sử dụng `tao` (Windowing, Native Menu & System Tray) và `wry` (Microsoft Edge WebView2).
+> **Dev by n0trxxan.1112**
 
----
-
-## 1. Ưu điểm kiến trúc trên Windows
-
-* **100% Rust & WebView2 Native**: Sử dụng runtime WebView2 có sẵn trong Windows 10/11, không cần nhúng kèm hàng trăm MB mã nguồn Chromium của Electron.
-* **Tối ưu bộ nhớ**: Tiết kiệm RAM đáng kể so với bản Electron cũ.
-* **Bảo mật**:
-  * Loại bỏ hoàn toàn cảnh báo Node.js Remote Content Injection.
-  * Tự động khử mã theo dõi (`fbclid`) khi mở liên kết ngoài.
-  * Win32 Named Mutex ngăn chặn triệt để xung đột Single Instance (`ERROR_SHARING_VIOLATION`).
-  * Win32 `FlashWindowEx` nhấp nháy thanh taskbar khi có tin nhắn mới.
+Ứng dụng Messenger Desktop chạy bằng **Rust** thuần túy dành cho **Windows** (sử dụng Microsoft Edge WebView2), tích hợp các tính năng bảo mật riêng tư, chống thu hồi tin nhắn và tối ưu tài nguyên vượt trội so với phiên bản web/electron thông thường.
 
 ---
 
-## 2. Cấu trúc thư mục
+## 1. Cách cài đặt & Khởi chạy
 
-```text
-├── Cargo.toml               # Cấu hình dependency cho Windows
-├── rust-toolchain.toml      # Pin toolchain x86_64-pc-windows-msvc (1.80.0)
-├── README.md                # Tài liệu này
-├── src/
-│   ├── main.rs              # Điểm vào chính, khởi tạo cửa sổ và event loop
-│   ├── lib.rs               # Library export cho test suite
-│   ├── config.rs            # Quản lý cấu hình, ghi nguyên tử vào %APPDATA%\CaprineRust
-│   ├── policy.rs            # Chính sách URL, kiểm tra điều hướng, khử tracking
-│   ├── ipc.rs               # Giao tiếp IPC typed Host <-> WebView2
-│   ├── menu.rs              # Menu ứng dụng Windows (Tệp, Chỉnh sửa, Hiển thị, Trợ giúp)
-│   ├── tray.rs              # Biểu tượng và menu ở khay hệ thống (System Tray)
-│   └── platform/
-│       └── windows.rs       # Win32 Named Mutex và FlashWindowEx
-├── webview/
-│   ├── adapter.js           # Script tiêm: MutationObserver, Unread Count
-│   └── styles.css           # CSS tiêm: Dark Mode, Private Mode, Code Blocks
-├── tests/
-│   ├── policy_test.rs       # Test whitelist URL, khử tracking, chặn scheme nguy hiểm
-│   ├── config_test.rs       # Test giá trị mặc định, migration từ Electron cũ
-│   ├── ipc_test.rs          # Test giải mã IPC, từ chối payload quá tải
-│   └── fixtures/            # Dữ liệu mẫu cấu hình cũ
-└── docs/
-    ├── architecture.md      # Kiến trúc hệ thống Windows
-    ├── feature-matrix.md    # Ma trận tính năng đối soát
-    ├── migration.md         # Hướng dẫn chuyển đổi cấu hình an toàn
-    └── verification.md      # Báo cáo kiểm chứng môi trường
-```
+### Yêu cầu hệ thống
+* Hệ điều hành: **Windows 10 / 11** (đã tích hợp sẵn Microsoft Edge WebView2 Runtime).
+* Cài đặt **Rust** (khuyến nghị phiên bản 1.75 trở lên):
+  ```powershell
+  winget install Rustlang.Rustup
+  # hoặc tải installer từ https://win.rustup.rs/x86_64
+  ```
+
+### Các bước cài đặt & chạy:
+
+1. **Clone repository:**
+   ```powershell
+   git clone https://github.com/Melon-1112/Messeger-mod.git
+   cd Messeger-mod
+   ```
+
+2. **Khởi chạy ứng dụng:**
+   ```powershell
+   cargo run --release
+   ```
+
+3. **(Tùy chọn) Đóng gói file `.exe` độc lập:**
+   ```powershell
+   cargo build --release
+   ```
+   Sau khi hoàn tất, file thực thi sẽ nằm tại đường dẫn:
+   `target\release\caprine-rust.exe` (bạn có thể copy ra Desktop hoặc ghim vào Taskbar để mở nhanh bất cứ lúc nào).
 
 ---
 
-## 3. Hướng dẫn xây dựng và kiểm thử trên Windows
+## 2. Các chức năng trong Menu
 
-### Cài đặt Rust (Yêu cầu MSRV 1.75+)
-```powershell
-winget install Rustlang.Rustup
-# hoặc tải trình cài đặt từ https://win.rustup.rs/x86_64
-```
+### Cách mở Menu
+* **Menu điều khiển trong ứng dụng:**
+  * Nhấn tổ hợp phím tắt: `Alt + M`
+  * Hoặc click vào nút **biểu tượng thanh gạt** ở góc trên cùng bên phải cửa sổ.
+* **Menu khay hệ thống (System Tray):**
+  * Nhấp chuột phải vào biểu tượng Messenger dưới góc phải thanh Taskbar (gần đồng hồ hệ thống).
 
-### Chạy kiểm tra:
-```powershell
-cargo fmt --all -- --check
-cargo check --all-targets
-cargo clippy --all-targets -- -D warnings
-cargo test
-```
+---
 
-### Khởi chạy ứng dụng:
-```powershell
-cargo run --release
-```
+### Danh sách chức năng Menu
+
+| Chức năng | Phím tắt / Vị trí | Mô tả chi tiết |
+| :--- | :--- | :--- |
+| 🛡️ **Chống thu hồi (Anti-recall)** | Menu / Tray | Tự động bắt và giữ lại toàn bộ tin nhắn văn bản, ảnh, video, sticker, file và liên kết khi người gửi bấm "Thu hồi với mọi người". Hiển thị nhãn đánh dấu trực quan để bạn đọc lại bất kỳ lúc nào. |
+| 👁️ **Chống xem (Block Seen)** | Menu / Tray | Chặn gửi trạng thái "Đã xem" về máy chủ. Bạn đọc tin nhắn thoải mái nhưng đối phương vẫn chỉ thấy trạng thái "Đã nhận". |
+| ✍️ **Ẩn đang nhập (Block Typing)** | Menu / Tray | Chặn gửi tín hiệu đang gõ phím. Đối phương sẽ không thấy biểu tượng dấu ba chấm nhấp nháy khi bạn đang soạn tin. |
+| 🔒 **Làm mờ riêng tư (Private Mode)** | Menu | Tự động làm mờ nội dung đoạn chat khi dời chuột ra ngoài cửa sổ, tránh bị người khác nhìn trộm màn hình. |
+| 📂 **Ẩn danh sách chat (Sidebar Hidden)** | Menu | Thu gọn cột danh sách hội thoại bên trái, giúp giao diện tối giản và tập trung vào khung chat. |
+| 📌 **Ghim trên cùng (Always on Top)** | Menu | Giữ cửa sổ Messenger luôn nổi trên các ứng dụng khác khi làm việc đa nhiệm. |
+| 🔄 **Chạy ngầm khi đóng (Background on Close)** | Menu / Tray | Bấm nút [X] đóng cửa sổ sẽ thu nhỏ app xuống khay hệ thống (như Zalo / Telegram) thay vì tắt hẳn, duy trì nhận thông báo tin nhắn mới. |
+| 🚀 **Khởi động cùng Windows (Run at Startup)** | Tray | Tự động khởi chạy ứng dụng chạy ngầm khi bạn mở máy tính. |
+| 🌗 **Giao diện Sáng / Tối (Theme Switch)** | Menu | Chuyển đổi nhanh chóng giữa giao diện Sáng (Light) và Tối (Dark). |
+| 🔍 **Thu phóng (Zoom Factor)** | Menu | Tăng giảm kích thước chữ và khung chat (+ / -) hoặc đặt lại 100%. |
+| 📊 **Thống kê bảo vệ (Privacy Stats)** | Menu | Hiển thị thời gian thực số lượng gói tin "Đã xem" và "Đang soạn tin" đã được chặn thành công. |

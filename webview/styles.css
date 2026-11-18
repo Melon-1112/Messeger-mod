@@ -219,6 +219,44 @@ html.n0-light .n0-ctrl-header {
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.n0-ctrl-author {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.16);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.28);
+    letter-spacing: 0.02em;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-author,
+html.n0-light .n0-ctrl-author {
+    background: #e0f2fe;
+    color: #0284c7;
+    border-color: #bae6fd;
+}
+
+.n0-ctrl-dev-footer {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.42);
+    padding-top: 8px;
+    margin-top: 4px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.03em;
+    font-weight: 500;
+}
+
+html[data-n0-theme="light"] .n0-ctrl-dev-footer,
+html.n0-light .n0-ctrl-dev-footer {
+    color: rgba(15, 23, 42, 0.45);
+    border-top-color: rgba(15, 23, 42, 0.1);
 }
 
 .n0-ctrl-close {

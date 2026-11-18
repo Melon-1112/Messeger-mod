@@ -4875,7 +4875,7 @@
         menuBtn.setAttribute('aria-label', 'Menu điều chỉnh chức năng');
         menuBtn.setAttribute('aria-haspopup', 'dialog');
         menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.title = 'Menu điều chỉnh chức năng (Alt+M)';
+        menuBtn.title = 'Menu điều chỉnh chức năng (dev by n0trxxan.1112) - Alt+M';
         menuBtn.appendChild(createSlidersIcon());
         menuBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -4894,7 +4894,7 @@
         header.className = 'n0-ctrl-header';
         const title = document.createElement('span');
         title.className = 'n0-ctrl-title';
-        title.textContent = 'Điều chỉnh chức năng';
+        title.innerHTML = 'Điều chỉnh chức năng <span class="n0-ctrl-author">dev by n0trxxan.1112</span>';
         const closeBtn = document.createElement('button');
         closeBtn.id = 'n0trxxan-menu-close';
         closeBtn.type = 'button';
@@ -5037,6 +5037,11 @@
         privStats.className = 'n0-ctrl-stats';
         privStats.setAttribute('aria-live', 'off');
         panel.appendChild(privStats);
+
+        const devFooter = document.createElement('div');
+        devFooter.className = 'n0-ctrl-dev-footer';
+        devFooter.textContent = 'dev by n0trxxan.1112';
+        panel.appendChild(devFooter);
 
         menuRoot.appendChild(menuBtn);
         menuRoot.appendChild(panel);

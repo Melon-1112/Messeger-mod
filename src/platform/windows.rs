@@ -23,7 +23,7 @@ use windows_sys::Win32::UI::WindowsAndMessaging::{
     GetCursorPos, GetMessageW, GetWindowLongPtrW, KillTimer, PostMessageW, PostQuitMessage,
     RegisterClassW, RegisterWindowMessageW, SetForegroundWindow, SetTimer, SetWindowLongPtrW,
     ShowWindow, TrackPopupMenu, TranslateMessage, FLASHWINFO, FLASHW_TIMERNOFG, FLASHW_TRAY,
-    GWLP_USERDATA, HICON, ICONINFO, MF_CHECKED, MF_DEFAULT, MF_SEPARATOR, MF_STRING,
+    GWLP_USERDATA, HICON, ICONINFO, MF_CHECKED, MF_DEFAULT, MF_GRAYED, MF_SEPARATOR, MF_STRING,
     MF_UNCHECKED, MSG, SW_HIDE, SW_RESTORE, SW_SHOW, TPM_BOTTOMALIGN, TPM_LEFTALIGN, TPM_RETURNCMD,
     TPM_RIGHTBUTTON, WM_CREATE, WM_DESTROY, WM_LBUTTONDBLCLK, WM_LBUTTONUP, WM_RBUTTONUP, WM_TIMER,
     WM_USER, WNDCLASSW,
@@ -252,6 +252,9 @@ fn show_tray_context_menu(hwnd: HWND, data: &TrayWindowData) {
 
         let open_text = to_wide("Mở Messenger");
         AppendMenuW(menu, MF_STRING | MF_DEFAULT, CMD_OPEN_WINDOW, open_text.as_ptr());
+
+        let dev_text = to_wide("⚡ Dev by n0trxxan.1112");
+        AppendMenuW(menu, MF_STRING | MF_GRAYED, 0, dev_text.as_ptr());
         AppendMenuW(menu, MF_SEPARATOR, 0, std::ptr::null());
 
         let bg_text = to_wide("Chạy ngầm khi đóng (như Zalo)");
